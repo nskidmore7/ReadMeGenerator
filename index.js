@@ -61,7 +61,7 @@ const questions = [
 
 function init() {
     inquirer.prompt(questions).then((response) => {
-        fs.writeFile('README.md', generateMd(response), (err) => {
+        fs.writeFile("README.md", generateMd(response), (err) => {
             if (err) {
                 console.error(err);
                 return;

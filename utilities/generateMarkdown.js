@@ -1,8 +1,6 @@
 function generateMarkdown(data) {
-    let license = "## License";
+    let license = "License";
     let licenseBadge = "";
-    let contribution =
-        "[Contributor Covenant](https://www.contributor-covenant.org/)";
     switch (data.license) {
         case "None":
             license = "";
@@ -43,33 +41,31 @@ function generateMarkdown(data) {
             licenseBadge =
                 "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)";
     }
-    if (data.contribution != "") {
-        contribution = data.contribution;
-    }
+
 
     return 
-  `# ${data.title}
+  `${data.title}
   ${license}
   ${licenseBadge}
-  ## Table of Contents
+  Table of Contents
   * [Description](#Description)
   * [Installation](#Installation)
   * [Usage](#Usage)
   * [Contribution](#Contribution)
   * [Testing](#Testing)
   * [Contact](#Contact)
-  ## Description
+  Description
   ${data.description}
-  ## Installation
+  Installation
   ${data.installation}
-  ## Usage 
-  [${data.usageAlt}](${data.usage})
-  ## Contribution
+  Usage 
+  (${data.usage})
+  Contribution
   ${contribution}
-  ## Testing
+  Testing
   ${data.test}
-  ## Contact
-    Please feel free to contact me at ${data.email} or @${data.githubUsername} on github.;
+  Contact
+    Please feel free to contact me at ${data.userEmail} or @${data.githubUsername} on github.;
 `}
 
 module.exports = generateMarkdown;
